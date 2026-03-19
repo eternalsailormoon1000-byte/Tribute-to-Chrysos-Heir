@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<HTML>
+	<HEAD>
+		<TITLE> Dux Gladiorium </TITLE>
+	</HEAD>
+	<STYLE>
+	body {font-family: Arial, sans-serif; background-image: linear-gradient(to right, #C79FEF, #E55B5B); margin: 0; padding: 0; color: #333;}
+	header {background-color: #0B1221; color: #fff; text-align: center; padding: 20px;}
+	h1 {font-size: 36px; margin: 0;}
+	.content {padding: 20px; max-width: 900px; margin: auto;}
+	.biography {background-color: #ffffff; padding: 20px; border-radius: 5px; box-shadow: 0 2px 10px black; margin-bottom: 20px;	
+				position: relative;transform: translateY(50px);opacity: 0;transition: all 1.2s ease-out}
+	img {display: block; margin: auto; width: 40%; height: 20%;}
+	.biography h2 {font-size: 24px; margin-bottom: 10px; text-align: center;}
+	footer  {text-align: center; padding: 10px; background-color: #0B1221; color: #fff;  bottom: 0; width: 100%;  margin: auto; 
+			  padding: 10px 0;}
+	footer p {text-align: center;}
+	.achievements {background-color: #ffffff; padding: 20px; border-radius: 5px; box-shadow: 0 2px 10px black;
+					transform: translateY(0);opacity: 0;transition: all 1.2s ease-out;transition-delay: 0.2s} 
+	.achievements h2 {font-size: 24px; margin-bottom: 10px;}
+	.achievements ul {list-style-type: disc; padding-left: 20px;}
+	.achievements li {margin-bottom: 5px;transition: all 0.3s ease;cursor: pointer;padding: 5px 0;list-style-position: inside;}	
+	nav ul {list-style-type: none; margin: 0; padding: 0; overflow: hidden; background-image: linear-gradient(to right, #2A1B3D, #D4AF3765, #F9F6EE) ; display: flex; justify-content: center;}
+	nav ul li {float: left;}
+	nav ul li a {display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;}
+	nav ul li a:hover {background-color: #E55B5B;}
+	p {text-align: justify;}
+	.reveal-active {opacity: 1 !important;transform: translateY(0) !important;}
+		li {transition: transform 0.3s ease, color 0.3s ease;cursor: pointer;}
+	li:hover {transform: translateX(15px);color: #d4af37; text-shadow: 0 0 8px rgba(212, 175, 55, 0.5);}
+	.achievements li:hover {color: #C79FEF; transform: translateX(15px);text-shadow: 0 0 10px rgba(199, 159, 239, 0.5);}
+	.achievements li:hover::marker {
+    color: #E55B5B;}	
+	</STYLE>
+<BODY>
+<NAV>
+	<ul>
+			<li><a href="#home">Home</a></li>
+				<li><a href="Tribute to Aglaea.html">Aglaea</a></li>
+					<li><a href="#contact">Contact</a></li>
+						<li><a href="Trailblazer.html">About Trailblazer</a></li>
+	</ul>
+</NAV>
+
+	<HEADER>
+		<H1 id="typewriter-title">  </H1>
+	</HEADER>
+	
+	<div class="content"> 
+		<section class="biography">
+			<img src="IMAGES/Lady Hysilens.webp">
+			<H2> About Lady Hysilens </H2>
+		
+	<P> The daughter of the sea, Hysilens, the "Dux Gladiorium", and the right man of Imperator Cerydra,
+		holding the Coreflame of Ocean, associating Titan Phagousa. The warrior called "Slayer of Sixty Thousand Foes"
+		earning that because of her cold-blooded warrior on Okhema. </P>
+		</section>
+		
+		<section class="achievements">
+			<H2> Achievements: </H2>
+				<ul>
+					<li> Knight Commander of Okhema: Hysilens served as the dedicated, loyal Knight Commander 
+					(also known as Dux Gladiorum or Wave-Strumming Knight) under Cerydra. </li>
+					<li> Defeating the Allied Forces: She played a major role in the army that stopped the allied forces of Loukas, Icaria, 
+					and Corinth from taking over Okhema. </li>
+					<li> Initiating the Flame-Chase Journey: Following the war, she was instrumental in the start of the first Flame-Chase journey. </li>
+					<li> Fighting the Black Tide: She fought against the corruption of the Black Tide for a thousand years, 
+					demonstrating immense willpower and combat prowess. </li>
+				</ul>
+		</section>
+	</div>
+	<footer>
+		<p> Created by Trailblazer. All rights reserved </p>
+	</footer>
+<script> function reveal() {
+  // This looks for both your bio and achievements
+  var items = document.querySelectorAll(".biography, .achievements");
+
+  for (var i = 0; i < items.length; i++) {
+    var windowHeight = window.innerHeight;
+    var elementTop = items[i].getBoundingClientRect().top;
+    var elementVisible = 150; 
+
+    if (elementTop < windowHeight - elementVisible) {
+      items[i].classList.add("reveal-active");
+    }
+  }
+}
+
+window.addEventListener("scroll", reveal);
+reveal(); // Run on load  
+
+document.addEventListener("DOMContentLoaded", function() {
+    // --- 1. TYPEWRITER EFFECT ---
+    const text = "Tribute to Lady Hysilens";
+    const speed = 100; 
+    let i = 0;
+    const titleElement = document.getElementById("typewriter-title");
+
+    function typeWriter() {
+        if (i < text.length) {
+            titleElement.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+        }
+    }
+
+    // --- 2. SCROLL REVEAL EFFECT ---
+    function reveal() {
+        var items = document.querySelectorAll(".biography, .achievements");
+        items.forEach(item => {
+            var windowHeight = window.innerHeight;
+            var elementTop = item.getBoundingClientRect().top;
+            if (elementTop < windowHeight - 100) {
+                item.classList.add("reveal-active");
+            }
+        });
+    }
+
+    // Start everything
+    typeWriter();
+    window.addEventListener("scroll", reveal);
+    reveal(); // Run once in case they are already on screen
+});
+</script>
+
+</BODY>
+</HTML>
+	
